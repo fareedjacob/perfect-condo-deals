@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Free GTA Off-Market Condo List — Perfect Condo Deals</title>
+<meta name="description" content="20–30% of GTA condo deals never hit MLS. Get the free off-market list of builder-surplus and assignment condos the public never sees — sent straight to you." />
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --black:#0a0a0c;--ink:#101016;--panel:#15151e;--panel2:#1c1c27;
+    --gold:#c9a84c;--gold-lt:#e3c46a;--teal:#17b3a6;--teal-dk:#0c7d73;
+    --red:#e23744;--red-dk:#b81f2c;--white:#ffffff;--muted:#9a9aab;
+    --line:rgba(255,255,255,0.08);
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--black);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+  .kicker::before{content:'';width:24px;height:2px;background:var(--teal)}
+  h2.title{font-size:clamp(28px,4.2vw,46px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:14px}
+  .lead{font-size:17px;color:var(--muted);max-width:640px;line-height:1.7}
+
+  /* TOP BAR */
+  .topbar{background:var(--red);color:#fff;text-align:center;font-size:13px;font-weight:600;letter-spacing:.3px;padding:9px 20px}
+  .topbar b{font-weight:800}
+
+  /* NAV (light — keep them on page) */
+  nav{position:sticky;top:0;z-index:100;background:rgba(10,10,12,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.3px}
+  .logo .mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:#1a1407;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px}
+  .logo .pc{color:var(--gold)}
+  .nav-cta{display:inline-flex;align-items:center;font-weight:700;font-size:14px;padding:10px 20px;border-radius:9px;background:var(--red);color:#fff;transition:all .2s}
+  .nav-cta:hover{background:var(--red-dk)}
+  @media(max-width:620px){.nav-cta{display:none}}
+
+  /* HERO + FORM */
+  .hero{position:relative;padding:64px 0 76px;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(1000px 480px at 88% -10%,rgba(23,179,166,.16),transparent 60%),
+    radial-gradient(820px 460px at -5% 110%,rgba(226,55,68,.12),transparent 55%),
+    linear-gradient(180deg,var(--black),#0c0c14)}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:50px;align-items:center}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(226,55,68,.13);border:1px solid rgba(226,55,68,.4);color:#ff8e96;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:7px 15px;border-radius:40px;margin-bottom:20px}
+  .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero h1{font-size:clamp(34px,5vw,56px);font-weight:900;line-height:1.04;letter-spacing:-1.6px;margin-bottom:18px}
+  .hero h1 .hl{color:var(--gold)}
+  .hero h1 .hl-red{color:var(--red)}
+  .hero p.sub{font-size:18px;color:#c3c3d0;max-width:520px;margin-bottom:24px;line-height:1.7}
+  .hero-bullets{display:flex;flex-direction:column;gap:11px;margin-bottom:8px}
+  .hb{display:flex;align-items:flex-start;gap:11px;font-size:15px;color:#d2d2de}
+  .hb .ck{width:22px;height:22px;border-radius:50%;background:rgba(23,179,166,.16);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;margin-top:1px}
+
+  /* FORM CARD */
+  .card{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.24);border-radius:22px;padding:34px 30px;backdrop-filter:blur(10px);box-shadow:0 30px 70px rgba(0,0,0,.45)}
+  .card .pill{display:inline-block;background:rgba(23,179,166,.14);border:1px solid rgba(23,179,166,.4);color:var(--teal);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 12px;border-radius:30px;margin-bottom:14px}
+  .card h3{font-size:25px;font-weight:800;margin-bottom:6px;letter-spacing:-.4px}
+  .card .cs{font-size:14px;color:var(--muted);margin-bottom:24px}
+  .fg{margin-bottom:13px}
+  .fg label{display:block;font-size:12.5px;font-weight:600;color:#b9b9c8;margin-bottom:7px;letter-spacing:.3px}
+  .fg input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:14px 16px;font-size:15px;color:#fff;outline:none;transition:border-color .15s;-webkit-appearance:none}
+  .fg input::placeholder{color:rgba(255,255,255,.28)}
+  .fg input:focus{border-color:var(--gold);background:rgba(255,255,255,.09)}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  /* CASL consent */
+  .consent{display:flex;align-items:flex-start;gap:11px;margin:16px 0 6px;font-size:12.5px;color:#aeaebd;line-height:1.55}
+  .consent input{width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--gold);cursor:pointer}
+  .consent label{cursor:pointer}
+  .submit{width:100%;background:var(--red);color:#fff;font-size:17px;font-weight:800;padding:18px;border:none;border-radius:12px;cursor:pointer;transition:all .2s;margin-top:10px}
+  .submit:hover{background:var(--red-dk);transform:translateY(-2px);box-shadow:0 12px 30px rgba(226,55,68,.35)}
+  .fine{font-size:11px;color:rgba(255,255,255,.32);text-align:center;margin-top:14px;line-height:1.65}
+  .fine a{color:var(--gold);text-decoration:underline}
+  #ty{display:none;text-align:center;padding:26px 8px}
+  #ty .i{font-size:50px;margin-bottom:14px}
+  #ty h3{font-size:26px;font-weight:900;color:var(--gold);margin-bottom:10px}
+  #ty p{color:var(--muted);font-size:15.5px;line-height:1.7}
+
+  /* HERO VISUAL */
+  .hero-visual{position:relative}
+  .hv-img{border-radius:18px;overflow:hidden;height:520px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+  .hv-img img{width:100%;height:100%;object-fit:cover}
+  .hv-tag{position:absolute;bottom:16px;left:16px;background:rgba(10,10,12,.8);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,.4);border-radius:12px;padding:13px 17px}
+  .hv-tag .t1{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .hv-tag .t2{font-size:21px;font-weight:900;line-height:1.05}
+  .hv-tag .t3{font-size:12px;color:var(--muted);margin-top:3px}
+
+  /* SECTION */
+  section.sec{padding:78px 0}
+  .center{text-align:center;margin:0 auto 48px}
+  .center .lead{margin:0 auto}.center .kicker{justify-content:center}
+
+  /* WHAT YOU GET */
+  .get-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .get{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 24px;display:flex;gap:16px;align-items:flex-start}
+  .get .gi{width:42px;height:42px;border-radius:11px;background:rgba(201,168,76,.13);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+  .get h3{font-size:17px;font-weight:700;margin-bottom:5px}
+  .get p{font-size:14px;color:var(--muted);line-height:1.65}
+
+  /* WHY OFF-MARKET */
+  .why-wrap{background:var(--ink)}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .why{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 24px}
+  .why .wn{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:#1a1407;font-weight:900;font-size:19px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .why h3{font-size:18px;font-weight:700;margin-bottom:7px}
+  .why p{font-size:14px;color:var(--muted);line-height:1.7}
+
+  /* STAT STRIP */
+  .stats{background:linear-gradient(90deg,var(--ink),var(--panel),var(--ink));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stats-in{display:flex;flex-wrap:wrap;justify-content:space-around;gap:24px;padding:34px 24px;max-width:1180px;margin:0 auto;text-align:center}
+  .stat .n{font-size:clamp(28px,3.6vw,42px);font-weight:900;letter-spacing:-1px;line-height:1}
+  .stat .n.gold{color:var(--gold)}.stat .n.teal{color:var(--teal)}.stat .n.red{color:var(--red)}
+  .stat .l{font-size:13px;color:var(--muted);margin-top:6px;letter-spacing:.4px;max-width:170px}
+
+  /* CTA BAND */
+  .ctaband{background:linear-gradient(135deg,#0b0b13,#10131f 55%,#0b0b13);text-align:center;padding:72px 0}
+  .ctaband h2{font-size:clamp(26px,3.6vw,40px);font-weight:900;letter-spacing:-1px;margin-bottom:14px}
+  .ctaband p{color:var(--muted);font-size:17px;max-width:560px;margin:0 auto 26px}
+  .btn-red{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:17px;padding:18px 34px;border-radius:12px;background:var(--red);color:#fff;cursor:pointer;border:none;transition:all .2s}
+  .btn-red:hover{background:var(--red-dk);transform:translateY(-2px);box-shadow:0 12px 30px rgba(226,55,68,.35)}
+
+  /* FOOTER */
+  footer{background:#070709;border-top:1px solid var(--line);padding:44px 0 30px}
+  .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+  .foot-brand{max-width:340px}.foot-brand .logo{margin-bottom:13px}
+  .foot-brand p{font-size:13.5px;color:var(--muted);line-height:1.7}
+  .foot-links{display:flex;gap:22px;font-size:13.5px;color:var(--muted);align-items:center;flex-wrap:wrap}
+  .foot-links a:hover{color:#fff}
+  .foot-fine{padding-top:22px;font-size:12px;color:rgba(255,255,255,.28);line-height:1.8}
+
+  /* STICKY MOBILE */
+  .sticky{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--black);border-top:1px solid rgba(201,168,76,.25);padding:12px 16px;z-index:200}
+  .sticky a{display:block;text-align:center;background:var(--red);color:#fff;font-weight:800;font-size:16px;padding:15px;border-radius:11px}
+
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .hero-visual{order:-1}
+    .hv-img{height:300px}
+    .get-grid{grid-template-columns:1fr}
+    .why-grid{grid-template-columns:1fr}
+    .sticky{display:block}
+    body{padding-bottom:74px}
+  }
+  @media(max-width:560px){.frow{grid-template-columns:1fr}}
+</style>
+</head>
+<body id="top">
+
+<!-- TOP BAR -->
+<div class="topbar">🔒 <b>The off-market list:</b> builder-surplus &amp; assignment condos the public never sees — all 2026 HST-rebate eligible</div>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><span class="mark">P</span><span><span class="pc">Perfect</span> Condo Deals</span></a>
+    <a href="#get" class="nav-cta">Get the Free List →</a>
+  </div>
+</nav>
+
+<!-- HERO + FORM -->
+<header class="hero" id="get">
+  <div class="wrap hero-grid">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="dot"></span> Not on MLS · GTA</div>
+      <h1>20–30% of GTA condo deals <span class="hl-red">never hit MLS.</span></h1>
+      <p class="sub">Less competition. More options. The builder-surplus and assignment-sale condos the public never sees — including <span class="hl">price-after-HST-rebate</span> figures — sent straight to you.</p>
+      <div class="hero-bullets">
+        <div class="hb"><span class="ck">✓</span> Brand-new GTA units priced well below comparable resale</div>
+        <div class="hb"><span class="ck">✓</span> Every deal qualifies for the 2026 HST rebate</div>
+        <div class="hb"><span class="ck">✓</span> Free, no obligation — your info is never sold</div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="card">
+        <div id="form-box">
+          <span class="pill">★ Join the Priority List</span>
+          <h3>Get the Free Off-Market List</h3>
+          <p class="cs">Sent today. First in line as new below-market units come in.</p>
+          <form id="omlForm" onsubmit="submitLead(event)">
+            <div class="frow">
+              <div class="fg"><label>First name</label><input type="text" name="firstName" placeholder="First" required autocomplete="given-name" /></div>
+              <div class="fg"><label>Last name</label><input type="text" name="lastName" placeholder="Last" required autocomplete="family-name" /></div>
+            </div>
+            <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required autocomplete="email" /></div>
+            <div class="fg"><label>Phone / text</label><input type="tel" name="phone" placeholder="(647) 000-0000" required autocomplete="tel" /></div>
+
+            <!-- CASL EXPRESS CONSENT (required) -->
+            <div class="consent">
+              <input type="checkbox" id="consent" name="consent" required />
+              <label for="consent">I agree to receive electronic messages (email, phone, and text) from <b>Perfect Condo Deals</b> and its licensed real-estate specialists about matching condo deals, pricing, and availability. I can withdraw my consent any time by unsubscribing or replying STOP.</label>
+            </div>
+
+            <button type="submit" class="submit">Send Me the Free Off-Market List →</button>
+          </form>
+          <p class="fine">
+            Perfect Condo Deals · RE/MAX Hallmark, Brokerage · RECO #[LICENSE NUMBER].
+            We never sell or share your information except with the licensed specialist who services your request. See our <a href="../privacy.html">Privacy &amp; CASL Policy</a>.
+            Savings &amp; 2026 HST/GST rebate figures are estimates that depend on the unit, your buyer profile, and price. Not a guarantee of future value.
+          </p>
+        </div>
+        <div id="ty">
+          <div class="i">✅</div>
+          <h3>You're on the Priority List.</h3>
+          <p>Check your inbox — the current off-market list is on its way. One of our specialists will follow up within 24 hours with full pricing, floor plans, and the price-after-HST-rebate figures.</p>
+        </div>
+      </div>
+      <!-- (image moved below form on mobile via order) -->
+    </div>
+  </div>
+</header>
+
+<!-- HERO IMAGE BAND (full-width visual proof) -->
+<div class="wrap" style="position:relative;margin-top:-30px;margin-bottom:10px">
+  <div class="hv-img" style="height:300px">
+    <img src="img/northcore-aerial.jpg" alt="Aerial view of GTA condo neighbourhood" />
+    <div class="hv-tag">
+      <div class="t1">This Week</div>
+      <div class="t2">2 Live Off-Market Deals</div>
+      <div class="t3">Pickering · North York</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<section class="sec">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">What's On the List</span>
+      <h2 class="title">The deals the public never sees</h2>
+      <p class="lead">One email. Real builder inventory and assignment deals across the GTA — with the numbers you need to judge them yourself.</p>
+    </div>
+    <div class="get-grid">
+      <div class="get"><span class="gi">📋</span><div><h3>The current off-market list</h3><p>Live builder-surplus and assignment-sale condos — brand-new units priced well below comparable resale, refreshed as new inventory comes in.</p></div></div>
+      <div class="get"><span class="gi">🏦</span><div><h3>Price after the 2026 HST rebate</h3><p>Every deal qualifies. We show the price after the rebate so you see the real number, not a sticker price. (Amount varies by buyer profile — we confirm yours.)</p></div></div>
+      <div class="get"><span class="gi">📊</span><div><h3>The resale gap, shown</h3><p>Comparable resale data beside each deal so you can verify the discount yourself. No vague "below market" — actual numbers.</p></div></div>
+      <div class="get"><span class="gi">⚡</span><div><h3>First access, before the public</h3><p>You're on the Priority List — new below-market units reach you before they're advertised anywhere else.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY OFF-MARKET -->
+<section class="sec why-wrap">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">No Catch</span>
+      <h2 class="title">Why these never hit MLS</h2>
+      <p class="lead">Real deals come from real motivation. Here's exactly what's happening right now.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why"><div class="wn">1</div><h3>Builders need to move inventory</h3><p>Over 4,000 completed condos sit unsold in Toronto. Builders set aside blocks at below-list pricing to clear them — and we get direct access.</p></div>
+      <div class="why"><div class="wn">2</div><h3>Assignment sellers want out</h3><p>2021–22 buyers who can't close are selling their contracts — often below what they paid. Quiet, time-sensitive, and rarely public.</p></div>
+      <div class="why"><div class="wn">3</div><h3>These deals stay private</h3><p>Builder-surplus and assignment deals are sold privately, often with advertising restrictions. That's the whole point of being on the list.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="stats">
+  <div class="stats-in">
+    <div class="stat"><div class="n teal">4,000+</div><div class="l">Unsold completed GTA units</div></div>
+    <div class="stat"><div class="n gold">38%</div><div class="l">New-vs-resale price gap</div></div>
+    <div class="stat"><div class="n red">2026</div><div class="l">HST rebate eligible</div></div>
+    <div class="stat"><div class="n gold">$0</div><div class="l">Cost to you as a buyer</div></div>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<section class="ctaband">
+  <div class="wrap">
+    <h2>See the deals the public never sees.</h2>
+    <p>Get the free off-market list today and stay first in line as new below-market units come in. Free, no obligation.</p>
+    <a href="#get" class="btn-red">Get the Free Off-Market List →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="#top"><span class="mark">P</span><span><span class="pc">Perfect</span> Condo Deals</span></a>
+        <p>Connecting GTA buyers to builder-surplus and below-market pre-construction condos — the deals that never hit MLS.</p>
+      </div>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="#get">Get the List</a>
+        <a href="../privacy.html">Privacy &amp; CASL</a>
+      </div>
+    </div>
+    <p class="foot-fine">
+      &copy; 2026 Perfect Condo Deals. All real estate transactions are completed by licensed Ontario real estate professionals. Brokerage: RE/MAX Hallmark · RECO #[LICENSE NUMBER] · [BUSINESS ADDRESS].
+      Prices and availability are subject to change without notice. Market value estimates are based on comparable listings and are not guaranteed. 2026 HST/GST rebate eligibility and amounts depend on your buyer profile (owner-occupied vs. investment) and purchase price — confirm your figure with us. Not a guarantee of future value or returns. Not intended to solicit buyers or sellers currently under contract with a brokerage.
+    </p>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE -->
+<div class="sticky"><a href="#get">Get the Free Off-Market List →</a></div>
+
+<script>
+  // Capture UTM / click IDs on load (for CRM + offline conversion import)
+  function qp(k){return new URLSearchParams(location.search).get(k)||'';}
+
+  function submitLead(e){
+    e.preventDefault();
+    var f=e.target;
+    var consentEl=document.getElementById('consent');
+    if(!consentEl.checked){consentEl.focus();return;} // CASL: express consent required
+    var consentText="I agree to receive electronic messages (email, phone, and text) from Perfect Condo Deals and its licensed real-estate specialists about matching condo deals, pricing, and availability. I can withdraw my consent any time by unsubscribing or replying STOP.";
+    var data={
+      firstName:f.firstName.value, lastName:f.lastName.value,
+      email:f.email.value, phone:f.phone.value,
+      consent:true, consentText:consentText, consentTimestamp:new Date().toISOString(),
+      source:'off-market-list', page:location.href, referrer:document.referrer,
+      utm_source:qp('utm_source'), utm_medium:qp('utm_medium'), utm_campaign:qp('utm_campaign'),
+      utm_content:qp('utm_content'), utm_term:qp('utm_term'),
+      gclid:qp('gclid'), fbclid:qp('fbclid'),
+      timestamp:new Date().toISOString()
+    };
+
+    // === CRM WEBHOOK — wire this to your CRM / automation ===
+    // Works with GoHighLevel, HubSpot, Zapier, Make, or a Google Apps Script endpoint.
+    // Replace the URL below, then uncomment:
+    /*
+    fetch('https://YOUR_CRM_WEBHOOK_URL', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+    */
+
+    // Fallback so no lead is ever lost while the CRM is being wired up:
+    var body=encodeURIComponent(Object.entries(data).map(function(kv){return kv[0]+': '+kv[1]}).join('\n'));
+    window.open('mailto:[LEADS_EMAIL]?subject='+encodeURIComponent('New Off-Market List Lead — '+data.firstName+' '+data.lastName)+'&body='+body,'_blank');
+
+    document.getElementById('form-box').style.display='none';
+    document.getElementById('ty').style.display='block';
+    document.getElementById('ty').scrollIntoView({behavior:'smooth',block:'center'});
+
+    if(typeof gtag!=='undefined')gtag('event','conversion',{send_to:'AW-XXXX/LABEL'});
+    if(typeof fbq!=='undefined')fbq('track','Lead');
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+</script>
+
+<!--
+══════════ BEFORE GOING LIVE ══════════
+1. CRM: replace YOUR_CRM_WEBHOOK_URL in submitLead() with your CRM/Zapier/GoHighLevel webhook.
+   Set [LEADS_EMAIL] as the fallback inbox.
+2. Tracking: paste Meta Pixel + Google Tag in <head>. Lead event also fires on /thank-you.
+3. Fill in: RE/MAX Hallmark, RECO #, [BUSINESS ADDRESS]. Confirm privacy.html is live + linked.
+4. Deploy free: Cloudflare Pages or drag /landing-page to netlify.com/drop.
+═══════════════════════════════════════
+-->
+</body>
+</html>

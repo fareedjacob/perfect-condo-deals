@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Perfect Condo Deals — Brand-New GTA Condos Below Market</title>
+<meta name="description" content="Builder-surplus and below-market pre-construction condos across the GTA. Get exclusive access to deals that never hit MLS. Prices up to 40% below market." />
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --black:#0a0a0c;
+    --ink:#101016;
+    --panel:#15151e;
+    --panel2:#1c1c27;
+    --gold:#c9a84c;
+    --gold-lt:#e3c46a;
+    --teal:#17b3a6;
+    --teal-dk:#0c7d73;
+    --red:#e23744;
+    --red-dk:#b81f2c;
+    --white:#ffffff;
+    --muted:#9a9aab;
+    --line:rgba(255,255,255,0.08);
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--black);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* ── kicker / titles ── */
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+  .kicker::before{content:'';width:24px;height:2px;background:var(--teal)}
+  h2.title{font-size:clamp(30px,4.5vw,50px);font-weight:800;letter-spacing:-1px;line-height:1.08;margin-bottom:14px}
+  .lead{font-size:18px;color:var(--muted);max-width:640px;line-height:1.7}
+
+  /* ── buttons ── */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:16px;padding:15px 30px;border-radius:10px;cursor:pointer;border:none;transition:all .2s;white-space:nowrap}
+  .btn-gold{background:var(--gold);color:#1a1407}
+  .btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,168,76,.3)}
+  .btn-red{background:var(--red);color:#fff}
+  .btn-red:hover{background:var(--red-dk);transform:translateY(-2px);box-shadow:0 12px 30px rgba(226,55,68,.35)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.22)}
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+
+  /* ─────────── TOP BAR ─────────── */
+  .topbar{background:var(--red);color:#fff;text-align:center;font-size:13px;font-weight:600;letter-spacing:.3px;padding:9px 20px}
+  .topbar b{font-weight:800}
+
+  /* ─────────── NAV ─────────── */
+  nav{position:sticky;top:0;z-index:100;background:rgba(10,10,12,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.3px}
+  .logo .mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:#1a1407;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+  .logo .pc{color:var(--gold)}
+  .nav-links{display:flex;align-items:center;gap:32px}
+  .nav-links a{font-size:15px;color:var(--muted);font-weight:500;transition:color .15s}
+  .nav-links a:hover{color:#fff}
+  .nav-cta{padding:11px 22px;font-size:14px}
+  @media(max-width:820px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ─────────── HERO ─────────── */
+  .hero{position:relative;padding:90px 0 100px;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(1100px 500px at 80% -10%,rgba(23,179,166,.16),transparent 60%),
+    radial-gradient(900px 500px at 0% 110%,rgba(226,55,68,.12),transparent 55%),
+    linear-gradient(180deg,var(--black),#0c0c14)}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(23,179,166,.12);border:1px solid rgba(23,179,166,.35);color:var(--teal);font-size:12.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:7px 15px;border-radius:40px;margin-bottom:22px}
+  .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero h1{font-size:clamp(40px,6vw,68px);font-weight:900;line-height:1.02;letter-spacing:-2px;margin-bottom:20px}
+  .hero h1 .hl{color:var(--gold)}
+  .hero h1 .hl-red{color:var(--red)}
+  .hero p.sub{font-size:19px;color:#c3c3d0;max-width:520px;margin-bottom:32px;line-height:1.7}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+  .hero-trust{display:flex;flex-wrap:wrap;gap:22px}
+  .ht{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+  .ht .ck{width:20px;height:20px;border-radius:50%;background:rgba(201,168,76,.16);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
+
+  /* hero visual: stacked images */
+  .hero-visual{position:relative;height:520px}
+  .hv-img{position:absolute;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08)}
+  .hv-main{width:78%;height:78%;top:0;right:0}
+  .hv-main img{width:100%;height:100%;object-fit:cover}
+  .hv-sub{width:52%;height:46%;bottom:0;left:0;border:3px solid var(--black)}
+  .hv-sub img{width:100%;height:100%;object-fit:cover}
+  .hv-tag{position:absolute;bottom:14px;left:14px;z-index:3;background:rgba(10,10,12,.78);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,.4);border-radius:12px;padding:12px 16px}
+  .hv-tag .t1{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .hv-tag .t2{font-size:22px;font-weight:900;line-height:1}
+  .hv-tag .t3{font-size:12px;color:var(--muted);margin-top:2px}
+
+  /* ─────────── STATS STRIP ─────────── */
+  .stats{background:linear-gradient(90deg,var(--ink),var(--panel),var(--ink));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stats-in{display:flex;flex-wrap:wrap;justify-content:space-around;gap:24px;padding:34px 24px;max-width:1180px;margin:0 auto;text-align:center}
+  .stat .n{font-size:clamp(30px,4vw,46px);font-weight:900;letter-spacing:-1px;line-height:1}
+  .stat .n.gold{color:var(--gold)}.stat .n.teal{color:var(--teal)}.stat .n.red{color:var(--red)}
+  .stat .l{font-size:13px;color:var(--muted);margin-top:6px;letter-spacing:.4px}
+
+  /* ─────────── SECTION ─────────── */
+  section.sec{padding:90px 0}
+  .center{text-align:center;margin:0 auto 54px}
+  .center .lead{margin:0 auto}
+  .center .kicker{justify-content:center}
+
+  /* ─────────── DEAL CARDS ─────────── */
+  .deals{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .deal{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .25s,border-color .25s;display:flex;flex-direction:column}
+  .deal:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.4)}
+  .deal-img{position:relative;height:280px;overflow:hidden}
+  .deal-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .deal:hover .deal-img img{transform:scale(1.05)}
+  .deal-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,12,.85))}
+  .deal-pill{position:absolute;top:16px;left:16px;z-index:2;background:var(--red);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:6px 13px;border-radius:6px}
+  .deal-pill.teal{background:var(--teal);color:#04201d}
+  .deal-loc{position:absolute;bottom:14px;left:18px;z-index:2;font-size:13px;color:#d6d6e0;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+  .deal-body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
+  .deal-name{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:4px}
+  .deal-dev{font-size:13px;color:var(--muted);margin-bottom:20px}
+  .deal-price-row{display:flex;align-items:flex-end;gap:14px;margin-bottom:18px}
+  .deal-price{font-size:34px;font-weight:900;color:var(--gold);letter-spacing:-1px;line-height:1}
+  .deal-price small{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:4px}
+  .deal-mkt{font-size:14px;color:var(--muted);padding-bottom:4px}
+  .deal-mkt s{color:rgba(255,255,255,.35)}
+  .deal-save{display:inline-block;background:rgba(226,55,68,.14);border:1px solid rgba(226,55,68,.4);color:#ff8e96;font-size:13px;font-weight:700;padding:6px 13px;border-radius:7px;margin-bottom:20px;align-self:flex-start}
+  .deal-feats{display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
+  .deal-feat{display:flex;align-items:center;gap:11px;font-size:14.5px;color:#cdcdda}
+  .deal-feat .fi{width:26px;height:26px;border-radius:7px;background:rgba(23,179,166,.13);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+  .deal .btn{width:100%;justify-content:center;margin-top:auto}
+
+  /* ─────────── WHY (split) ─────────── */
+  .why-wrap{background:var(--ink)}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .split-img{border-radius:20px;overflow:hidden;height:440px;position:relative;border:1px solid var(--line)}
+  .split-img img{width:100%;height:100%;object-fit:cover}
+  .why-list{display:flex;flex-direction:column;gap:22px;margin-top:10px}
+  .why-item{display:flex;gap:18px}
+  .why-num{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:#1a1407;font-weight:900;font-size:19px;display:flex;align-items:center;justify-content:center}
+  .why-item h3{font-size:19px;font-weight:700;margin-bottom:5px}
+  .why-item p{font-size:15px;color:var(--muted);line-height:1.7}
+
+  /* ─────────── HOW IT WORKS ─────────── */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px 24px;position:relative}
+  .step .sn{width:50px;height:50px;border-radius:50%;border:2px solid var(--teal);color:var(--teal);font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .step h3{font-size:18px;font-weight:700;margin-bottom:8px}
+  .step p{font-size:14px;color:var(--muted);line-height:1.6}
+  .step .arr{position:absolute;top:46px;right:-14px;color:var(--gold);font-size:20px;z-index:2}
+  @media(max-width:860px){.step .arr{display:none}}
+
+  /* ─────────── MARKET ─────────── */
+  .market-wrap{background:var(--ink)}
+  .mkt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .mkt{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 24px;border-top:3px solid var(--teal)}
+  .mkt:nth-child(2){border-top-color:var(--gold)}
+  .mkt:nth-child(3){border-top-color:var(--red)}
+  .mkt:nth-child(4){border-top-color:var(--teal)}
+  .mkt .mn{font-size:clamp(34px,4vw,50px);font-weight:900;letter-spacing:-1.5px;line-height:1;margin-bottom:10px}
+  .mkt:nth-child(1) .mn{color:var(--teal)}.mkt:nth-child(2) .mn{color:var(--gold)}.mkt:nth-child(3) .mn{color:var(--red)}.mkt:nth-child(4) .mn{color:var(--teal)}
+  .mkt h3{font-size:15px;font-weight:700;margin-bottom:8px;line-height:1.3}
+  .mkt p{font-size:13px;color:var(--muted);line-height:1.6}
+  .mkt sup{color:var(--gold);font-size:11px;font-weight:700}
+  .sources{margin-top:26px;font-size:12px;color:rgba(255,255,255,.32);line-height:1.7}
+  .sources b{color:rgba(255,255,255,.5)}
+
+  /* ─────────── LEAD FORM ─────────── */
+  .form-wrap{background:linear-gradient(135deg,#0b0b13,#10131f 55%,#0b0b13);position:relative;overflow:hidden}
+  .form-wrap::before{content:'';position:absolute;top:-180px;right:-120px;width:520px;height:520px;background:radial-gradient(circle,rgba(201,168,76,.1),transparent 70%)}
+  .form-wrap::after{content:'';position:absolute;bottom:-180px;left:-120px;width:520px;height:520px;background:radial-gradient(circle,rgba(23,179,166,.1),transparent 70%)}
+  .form-grid{position:relative;display:grid;grid-template-columns:1fr 480px;gap:56px;align-items:center}
+  .form-left h2{margin-bottom:16px}
+  .form-benefits{display:flex;flex-direction:column;gap:15px;margin-top:28px}
+  .fb{display:flex;align-items:flex-start;gap:13px;font-size:15.5px;color:#d2d2de}
+  .fb .fbi{width:30px;height:30px;border-radius:8px;background:rgba(201,168,76,.13);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-top:1px}
+  .card{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.22);border-radius:22px;padding:38px 34px;backdrop-filter:blur(10px)}
+  .card h3{font-size:24px;font-weight:800;margin-bottom:6px}
+  .card .cs{font-size:14px;color:var(--muted);margin-bottom:26px}
+  .fg{margin-bottom:15px}
+  .fg label{display:block;font-size:12.5px;font-weight:600;color:#b9b9c8;margin-bottom:7px;letter-spacing:.3px}
+  .fg input,.fg select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:14px 16px;font-size:15px;color:#fff;outline:none;transition:border-color .15s;-webkit-appearance:none}
+  .fg input::placeholder{color:rgba(255,255,255,.28)}
+  .fg input:focus,.fg select:focus{border-color:var(--gold);background:rgba(255,255,255,.09)}
+  .fg select option{background:#15151e}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .submit{width:100%;background:var(--red);color:#fff;font-size:17px;font-weight:800;padding:18px;border:none;border-radius:12px;cursor:pointer;transition:all .2s;margin-top:8px}
+  .submit:hover{background:var(--red-dk);transform:translateY(-2px);box-shadow:0 12px 30px rgba(226,55,68,.35)}
+  .fine{font-size:11px;color:rgba(255,255,255,.3);text-align:center;margin-top:14px;line-height:1.6}
+  .fine a{color:var(--gold);text-decoration:underline}
+  .consent{display:flex;align-items:flex-start;gap:11px;margin:16px 0 6px;font-size:12.5px;color:#aeaebd;line-height:1.55}
+  .consent input{width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--gold);cursor:pointer}
+  .consent label{cursor:pointer}
+  #ty{display:none;text-align:center;padding:30px 10px}
+  #ty .i{font-size:50px;margin-bottom:14px}
+  #ty h3{font-size:27px;font-weight:900;color:var(--gold);margin-bottom:10px}
+  #ty p{color:var(--muted);font-size:16px;line-height:1.7}
+
+  /* ─────────── FAQ ─────────── */
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .qa{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px 26px}
+  .qa h4{font-size:16px;font-weight:700;margin-bottom:8px;color:#fff}
+  .qa h4::before{content:'›';color:var(--teal);font-weight:900;margin-right:8px}
+  .qa p{font-size:14px;color:var(--muted);line-height:1.7}
+
+  /* ─────────── FOOTER ─────────── */
+  footer{background:#070709;border-top:1px solid var(--line);padding:48px 0 30px}
+  .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:30px;border-bottom:1px solid var(--line)}
+  .foot-brand{max-width:330px}
+  .foot-brand .logo{margin-bottom:14px}
+  .foot-brand p{font-size:13.5px;color:var(--muted);line-height:1.7}
+  .foot-cta h4{font-size:15px;color:#fff;margin-bottom:14px;font-weight:700}
+  .foot-fine{padding-top:24px;font-size:12px;color:rgba(255,255,255,.28);line-height:1.8}
+
+  /* ─────────── STICKY MOBILE ─────────── */
+  .sticky{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--black);border-top:1px solid rgba(201,168,76,.25);padding:12px 16px;z-index:200}
+  .sticky a{display:block;text-align:center;background:var(--red);color:#fff;font-weight:800;font-size:16px;padding:15px;border-radius:11px}
+
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-visual{height:380px;max-width:520px}
+    .deals{grid-template-columns:1fr}
+    .split{grid-template-columns:1fr;gap:32px}
+    .split-img{height:320px;order:-1}
+    .steps{grid-template-columns:1fr 1fr}
+    .mkt-grid{grid-template-columns:1fr 1fr}
+    .form-grid{grid-template-columns:1fr;gap:36px}
+    .faq{grid-template-columns:1fr}
+    .sticky{display:block}
+    body{padding-bottom:74px}
+  }
+  @media(max-width:560px){
+    .steps{grid-template-columns:1fr}.mkt-grid{grid-template-columns:1fr}
+    .frow{grid-template-columns:1fr}
+    .hero-visual{height:330px}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">🔥 <b>Every deal qualifies for the 2026 HST Rebate</b> — new below-market units added weekly</div>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><span class="mark">P</span><span><span class="pc">Perfect</span> Condo Deals</span></a>
+    <div class="nav-links">
+      <a href="#deals">Deals</a>
+      <a href="#how">How It Works</a>
+      <a href="#market">The Market</a>
+      <a href="#access" class="btn btn-gold nav-cta">Get Access</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="dot"></span> Builder Surplus &amp; Assignment Deals · GTA</div>
+      <h1>Brand-New GTA Condos.<br><span class="hl">Up to 40%</span> <span class="hl-red">Below Market.</span></h1>
+      <p class="sub"><b style="color:#fff">20–30% of GTA condo deals never hit MLS.</b> We get access to the builder-surplus and assignment-sale condos the public never sees — across the Greater Toronto Area. Fill one form, get the full details.</p>
+      <div class="hero-ctas">
+        <a href="#access" class="btn btn-red">Get Exclusive Access →</a>
+        <a href="#deals" class="btn btn-ghost">See This Week's Deals</a>
+      </div>
+      <div class="hero-trust">
+        <div class="ht"><span class="ck">✓</span> 2026 HST rebate eligible</div>
+        <div class="ht"><span class="ck">✓</span> Not on MLS</div>
+        <div class="ht"><span class="ck">✓</span> Direct from builders</div>
+        <div class="ht"><span class="ck">✓</span> Free &amp; no obligation</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hv-img hv-main"><img src="img/northcore-rooftop.jpg" alt="Condo rooftop terrace with Toronto skyline" /></div>
+      <div class="hv-img hv-sub"><img src="img/1515-exterior.jpg" alt="1515 Pickering Parkway building" /></div>
+      <div class="hv-tag">
+        <div class="t1">This Week</div>
+        <div class="t2">2 New Deals</div>
+        <div class="t3">Pickering · North York</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-in">
+    <div class="stat"><div class="n gold">40%</div><div class="l">Up to, below market</div></div>
+    <div class="stat"><div class="n teal">4,000+</div><div class="l">Unsold GTA units<sup style="color:var(--gold)">1</sup></div></div>
+    <div class="stat"><div class="n red">$0</div><div class="l">Cost to you as a buyer</div></div>
+    <div class="stat"><div class="n gold">24 hrs</div><div class="l">Avg. response time</div></div>
+  </div>
+</div>
+
+<!-- DEALS -->
+<section class="sec" id="deals">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">This Week's Deals</span>
+      <h2 class="title">Live Below-Market Listings</h2>
+      <p class="lead">Two brand-new developments with builder inventory priced well under comparable resale. Get the full price list and floor plans for either.</p>
+    </div>
+    <div class="deals">
+
+      <!-- DEAL 1: 1515 Pickering -->
+      <div class="deal">
+        <div class="deal-img">
+          <span class="deal-pill">Builder Surplus</span>
+          <img src="img/1515-exterior.jpg" alt="1515 Pickering Parkway" />
+          <span class="deal-loc">📍 Pickering · by the Lake</span>
+        </div>
+        <div class="deal-body">
+          <div class="deal-name">1515 Pickering Parkway</div>
+          <div class="deal-dev">Sevoy Developments · Occupancy Summer 2028</div>
+          <div class="deal-price-row">
+            <div class="deal-price"><small>From the</small>$340s</div>
+            <div class="deal-mkt">approx · subject to change</div>
+          </div>
+          <span class="deal-save">↓ Builder incentives stacked · up to $130K HST back (2026)</span>
+          <div class="deal-feats">
+            <div class="deal-feat"><span class="fi">🏦</span> Up to $130K back under the 2026 HST rebate</div>
+            <div class="deal-feat"><span class="fi">🚆</span> 5-min walk to Pickering GO — 35 min to Union</div>
+            <div class="deal-feat"><span class="fi">🌊</span> Steps from Lake Ontario waterfront</div>
+            <div class="deal-feat"><span class="fi">💵</span> Own from $1,500/month deposit program</div>
+          </div>
+          <a href="#access" class="btn btn-gold" onclick="setDeal('1515 Pickering Parkway')">Get the Price List →</a>
+        </div>
+      </div>
+
+      <!-- DEAL 2: NORTHCORE -->
+      <div class="deal">
+        <div class="deal-img">
+          <span class="deal-pill teal">Premium · North York</span>
+          <img src="img/northcore-townhome.jpg" alt="NORTHCORE 53 Sheppard" />
+          <span class="deal-loc">📍 Yonge &amp; Sheppard, North York</span>
+        </div>
+        <div class="deal-body">
+          <div class="deal-name">NORTHCORE</div>
+          <div class="deal-dev">53 Sheppard · Towns &amp; tower · Yonge &amp; Sheppard</div>
+          <div class="deal-price-row">
+            <div class="deal-price"><small>From the</small>$500s</div>
+            <div class="deal-mkt">approx · subject to change</div>
+          </div>
+          <span class="deal-save">↓ VIP first access · up to $130K HST back (2026)</span>
+          <div class="deal-feats">
+            <div class="deal-feat"><span class="fi">🏦</span> Up to $130K back under the 2026 HST rebate</div>
+            <div class="deal-feat"><span class="fi">🚇</span> Walk 91 · steps to Sheppard–Yonge (2 subway lines)</div>
+            <div class="deal-feat"><span class="fi">🌇</span> Private rooftop terraces · skyline views</div>
+            <div class="deal-feat"><span class="fi">🛁</span> Oak kitchens &amp; soaker-tub ensuites</div>
+          </div>
+          <a href="#access" class="btn btn-gold" onclick="setDeal('NORTHCORE 53 Sheppard')">Get the Price List →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY BELOW MARKET -->
+<section class="sec why-wrap">
+  <div class="wrap split">
+    <div>
+      <span class="kicker">No Catch</span>
+      <h2 class="title">Why Are These Below Market?</h2>
+      <p class="lead" style="margin-bottom:8px">Real deals come from real motivation. Here's exactly what's happening.</p>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">1</div>
+          <div><h3>Builders Need to Move Inventory</h3><p>Developments completed with unsold units. Builders set aside blocks at below-list pricing to clear inventory and keep cash flowing — and we get direct access to them.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">2</div>
+          <div><h3>The Market Has Shifted</h3><p>Over 4,000 completed condos sit unsold in Toronto. For the first time in a decade, buyers have leverage — and we put it in your hands.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">3</div>
+          <div><h3>These Deals Stay Private</h3><p>Builder surplus and assignment deals rarely hit MLS. The public never sees them. Our list does — that's the whole point of being on it.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="split-img"><img src="img/1515-kitchen.jpg" alt="Modern condo interior" /></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Simple Process</span>
+      <h2 class="title">How It Works</h2>
+      <p class="lead">From browsing to keys — four steps, zero pressure.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="sn">1</div><h3>Get on the List</h3><p>Fill out the form. Tell us your budget and what you're after. Takes 30 seconds.</p><span class="arr">→</span></div>
+      <div class="step"><div class="sn">2</div><h3>Get the Details</h3><p>We send you the full price list, floor plans, and deposit structure — same day.</p><span class="arr">→</span></div>
+      <div class="step"><div class="sn">3</div><h3>Tour &amp; Decide</h3><p>Like what you see? One of our specialists books you a private showing.</p><span class="arr">→</span></div>
+      <div class="step"><div class="sn">4</div><h3>Close With the Builder</h3><p>We handle the paperwork and negotiation. You sign and secure your unit.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section class="sec market-wrap" id="market">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">The Data</span>
+      <h2 class="title">Why 2026 Is the Buyer's Moment</h2>
+      <p class="lead">A rare alignment of distressed supply and motivated sellers. The numbers tell the story.</p>
+    </div>
+    <div class="mkt-grid">
+      <div class="mkt"><div class="mn">4,000+</div><h3>Unsold Completed Units<sup>1</sup></h3><p>A record number of finished condos sit unsold in Toronto as of Q1 2026 — builders are negotiating.</p></div>
+      <div class="mkt"><div class="mn">38%</div><h3>New vs. Resale Gap<sup>2</sup></h3><p>New condos average $1,189/sqft while resale sits at $859/sqft. Builders are closing that gap fast.</p></div>
+      <div class="mkt"><div class="mn">#3</div><h3>Fastest-Growing Region<sup>3</sup></h3><p>Pickering is among Canada's fastest-growing regions — population, jobs, and transit all climbing.</p></div>
+      <div class="mkt"><div class="mn">Low</div><h3>Rental Vacancy<sup>3</sup></h3><p>Tight GTA rental supply means strong rental demand — cashflow potential from day one.</p></div>
+    </div>
+    <p class="sources">
+      <b>Sources:</b>
+      <sup>1</sup> Urbanation / Zonda completed-and-unsold inventory data, reported by The Globe and Mail (2026).
+      <sup>2</sup> Urbanation new-vs-resale price-per-sqft, Q1 2026.
+      <sup>3</sup> Statistics Canada &amp; City of Pickering growth projections; rental data per CMHC. Figures are illustrative — confirm current data before purchase.
+    </p>
+  </div>
+</section>
+
+<!-- LEAD FORM -->
+<section class="sec form-wrap" id="access">
+  <div class="wrap form-grid">
+    <div class="form-left">
+      <span class="kicker">Get Access</span>
+      <h2 class="title">Unlock Every Deal</h2>
+      <p class="lead">One form gets you the full deal sheet on any listing — and puts you first in line as new below-market units come in.</p>
+      <div class="form-benefits">
+        <div class="fb"><span class="fbi">📋</span> Full price lists &amp; floor plans for every available unit</div>
+        <div class="fb"><span class="fbi">💰</span> Deposit structures — see how little you need upfront</div>
+        <div class="fb"><span class="fbi">📊</span> Comparable resale data so you can see the gap yourself</div>
+        <div class="fb"><span class="fbi">⚡</span> First access to new deals before they're gone</div>
+        <div class="fb"><span class="fbi">🔒</span> Zero obligation. Your info is never sold or shared.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div id="form-box">
+        <span style="display:inline-block;background:rgba(23,179,166,.14);border:1px solid rgba(23,179,166,.4);color:var(--teal);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 12px;border-radius:30px;margin-bottom:12px">★ Join the Priority List</span>
+        <h3>Get the Deal Sheet</h3>
+        <p class="cs">We'll send it today — and you're first in line as new below-market units come in. Free, no pressure.</p>
+        <form id="lead" onsubmit="submitLead(event)">
+          <div class="fg"><label>Full Name</label><input type="text" name="name" placeholder="Your full name" required autocomplete="name" /></div>
+          <div class="frow">
+            <div class="fg"><label>Phone / Text</label><input type="tel" name="phone" placeholder="(647) 000-0000" required autocomplete="tel" /></div>
+            <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required autocomplete="email" /></div>
+          </div>
+          <div class="fg"><label>Which deal are you interested in?</label>
+            <select name="deal" id="deal-select" required>
+              <option value="" disabled selected>Select a deal</option>
+              <option>1515 Pickering Parkway</option>
+              <option>NORTHCORE 53 Sheppard</option>
+              <option>Both / Show me everything</option>
+            </select>
+          </div>
+          <div class="frow">
+            <div class="fg"><label>Timeline</label>
+              <select name="timeline" required>
+                <option value="" disabled selected>How soon?</option>
+                <option value="asap">ASAP — I'm ready</option>
+                <option value="3mo">Within 3 months</option>
+                <option value="6mo">Within 6 months</option>
+                <option value="browsing">Just exploring</option>
+              </select>
+            </div>
+            <div class="fg"><label>Purpose</label>
+              <select name="intent" required>
+                <option value="" disabled selected>Live or invest?</option>
+                <option value="live">To live in</option>
+                <option value="invest">Investment</option>
+                <option value="either">Either</option>
+              </select>
+            </div>
+          </div>
+          <!-- CASL EXPRESS CONSENT (required) -->
+          <div class="consent">
+            <input type="checkbox" id="consent" name="consent" required />
+            <label for="consent">I agree to receive electronic messages (email, phone, and text) from <b>Perfect Condo Deals</b> and its licensed real-estate specialists about matching condo deals, pricing, and availability. I can withdraw my consent any time by unsubscribing or replying STOP.</label>
+          </div>
+          <button type="submit" class="submit">Send Me the Deal Sheet →</button>
+        </form>
+        <p class="fine">
+          Perfect Condo Deals · RE/MAX Hallmark, Brokerage · RECO #[LICENSE NUMBER].
+          We never sell or share your information except with the licensed specialist who services your request. See our <a href="../privacy.html">Privacy &amp; CASL Policy</a>.
+          Savings &amp; 2026 HST/GST rebate figures are estimates that depend on the unit, your buyer profile, and price. Not a guarantee of future value.
+        </p>
+      </div>
+      <div id="ty">
+        <div class="i">✅</div>
+        <h3>You're on the list.</h3>
+        <p>One of our specialists will reach out within 24 hours with the full deal sheet, floor plans, and deposit breakdown.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Good to Know</span>
+      <h2 class="title">Common Questions</h2>
+    </div>
+    <div class="faq">
+      <div class="qa"><h4>Is there any cost to me?</h4><p>No. Our service is free to buyers — we're compensated by the builder when a deal closes. You pay the unit price, nothing extra to us.</p></div>
+      <div class="qa"><h4>Why aren't these on MLS?</h4><p>Builder-surplus and assignment deals are typically sold privately, often with advertising restrictions. That's exactly why getting on our list matters.</p></div>
+      <div class="qa"><h4>Are the savings real?</h4><p>Yes. We show you comparable resale data so you can verify the gap yourself. Market figures are estimates — we never guarantee future appreciation.</p></div>
+      <div class="qa"><h4>What's the 2026 HST rebate?</h4><p>Every deal we offer qualifies for the 2026 HST/GST new-home rebate — money back in your pocket on closing. The exact amount depends on whether you're an owner-occupier or investor and the purchase price. We'll calculate your figure.</p></div>
+      <div class="qa"><h4>How much deposit do I need?</h4><p>It varies by deal. Some — like 1515 Pickering — offer a monthly deposit program from $1,500/mo with as little as 5% down spread over the first year. We'll walk you through the full structure.</p></div>
+      <div class="qa"><h4>What happens after I fill the form?</h4><p>You get the full deal sheet the same day. If you're interested, a licensed specialist books a private showing and handles everything through to closing.</p></div>
+      <div class="qa"><h4>Do I need to be an investor?</h4><p>Not at all. Most buyers are end-users — first-timers and right-sizers — alongside investors. We match deals to what you're looking for.</p></div>
+      <div class="qa"><h4>How often do new deals come in?</h4><p>Regularly. The GTA market is shifting fast right now, which means new builder-surplus inventory and assignments appear weekly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="#top"><span class="mark">P</span><span><span class="pc">Perfect</span> Condo Deals</span></a>
+        <p>Connecting GTA buyers to builder-surplus and below-market pre-construction condos — the deals that never hit MLS.</p>
+      </div>
+      <div class="foot-cta">
+        <h4>Ready to see the deals?</h4>
+        <a href="#access" class="btn btn-gold">Get Exclusive Access →</a>
+      </div>
+    </div>
+    <p class="foot-fine">
+      &copy; 2026 Perfect Condo Deals. All real estate transactions are completed by licensed Ontario real estate professionals. Brokerage: RE/MAX Hallmark · RECO #[LICENSE NUMBER].
+      Prices and availability are subject to change without notice. Market value estimates are based on comparable listings and are not guaranteed. 2026 HST/GST rebate eligibility and amounts depend on your buyer profile (owner-occupied vs. investment) and purchase price — confirm your figure with us. Not intended to solicit buyers or sellers currently under contract with a brokerage.
+    </p>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE -->
+<div class="sticky"><a href="#access">Get Exclusive Access →</a></div>
+
+<script>
+  function setDeal(name){
+    var sel=document.getElementById('deal-select');
+    for(var i=0;i<sel.options.length;i++){if(sel.options[i].value===name||sel.options[i].text===name){sel.selectedIndex=i;break;}}
+  }
+  function qp(k){return new URLSearchParams(location.search).get(k)||'';}
+  function submitLead(e){
+    e.preventDefault();
+    var f=e.target;
+    var consentEl=document.getElementById('consent');
+    if(!consentEl.checked){consentEl.focus();return;} // CASL: express consent required
+    var consentText="I agree to receive electronic messages (email, phone, and text) from Perfect Condo Deals and its licensed real-estate specialists about matching condo deals, pricing, and availability. I can withdraw my consent any time by unsubscribing or replying STOP.";
+    var data={name:f.name.value,phone:f.phone.value,email:f.email.value,deal:f.deal.value,timeline:f.timeline.value,intent:f.intent.value,
+      consent:true,consentText:consentText,consentTimestamp:new Date().toISOString(),
+      source:'home',page:location.href,referrer:document.referrer,
+      utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),utm_term:qp('utm_term'),
+      gclid:qp('gclid'),fbclid:qp('fbclid'),timestamp:new Date().toISOString()};
+
+    // === CRM WEBHOOK — wire this to your CRM / automation ===
+    // Works with GoHighLevel, HubSpot, Zapier, Make, or a Google Apps Script endpoint.
+    // Replace the URL below, then uncomment:
+    /*
+    fetch('https://YOUR_CRM_WEBHOOK_URL', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+    */
+
+    // Fallback so no lead is ever lost while the CRM is being wired up:
+    var body=encodeURIComponent(Object.entries(data).map(function(kv){return kv[0]+': '+kv[1]}).join('\n'));
+    window.open('mailto:[LEADS_EMAIL]?subject='+encodeURIComponent('New Lead — '+data.deal)+'&body='+body,'_blank');
+
+    document.getElementById('form-box').style.display='none';
+    document.getElementById('ty').style.display='block';
+
+    if(typeof gtag!=='undefined')gtag('event','conversion',{send_to:'AW-XXXX/LABEL'});
+    if(typeof fbq!=='undefined')fbq('track','Lead');
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+</script>
+
+<!--
+══════════ BEFORE GOING LIVE ══════════
+1. CRM: replace YOUR_CRM_WEBHOOK_URL in submitLead() with your CRM/Zapier/GoHighLevel webhook.
+   Set [LEADS_EMAIL] as the fallback inbox.
+2. Tracking: paste Meta Pixel + Google Tag in <head>.
+3. Confirm with developer/deal sheet: NORTHCORE "from" price (now shown hedged as "from the $500s, approx" — aggregators cluster $495K–$506K, official = TBA), RE/MAX Hallmark, RECO #.
+4. Deploy free: drag /landing-page to netlify.com/drop, or use Cloudflare Pages.
+═══════════════════════════════════════
+-->
+</body>
+</html>
