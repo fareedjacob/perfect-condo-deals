@@ -15,7 +15,7 @@
     email: "hello@perfectcondodeals.com",
     hours: "Mon–Sun · 9:00am – 7:00pm",
     area: "Serving the Greater Toronto Area",
-    brokerage: "[BROKERAGE NAME], Brokerage",
+    brokerage: "RE/MAX Hallmark, Brokerage",
     reco: "[RECO #]"
   };
 
