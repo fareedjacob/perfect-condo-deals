@@ -46,26 +46,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 <style>
-  .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
-  @media(max-width:900px){.calc-grid{grid-template-columns:1fr}}
-  .calc-card{align-self:start}
-  .calc .fg{margin-bottom:20px}
-  .price-row{display:flex;align-items:center;gap:12px}
-  .price-row .dollar{font-size:22px;font-weight:700;color:var(--ink,#0c1a37)}
-  .price-row input[type=number]{font-size:20px;font-weight:700;width:100%}
-  input[type=range]{width:100%;accent-color:var(--gold,#c2a25a);margin-top:14px}
-  .seg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
-  .seg button{padding:13px 14px;border-radius:12px;border:1.5px solid var(--line,#e6e2d6);background:#fff;font:inherit;font-weight:600;cursor:pointer;transition:all .15s;color:inherit}
-  .seg button[aria-pressed=true]{border-color:var(--gold,#c2a25a);background:rgba(194,162,90,.12);box-shadow:0 0 0 3px rgba(194,162,90,.12)}
-  .result{background:var(--navy,#0c1a37);color:#fff;border-radius:18px;padding:30px 28px}
-  .result .rk{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-2,#d9bd79)}
-  .result .big{font-size:clamp(38px,6vw,56px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin:8px 0 2px}
-  .result .sub{color:#aeb7ca;font-size:14px}
-  .result .breakdown{margin:22px 0 0;border-top:1px solid rgba(255,255,255,.12);padding-top:18px;display:flex;flex-direction:column;gap:12px}
-  .result .brow{display:flex;justify-content:space-between;gap:16px;font-size:15px}
-  .result .brow span:last-child{font-weight:700}
-  .result .hedge{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px;font-size:14px;color:#c7cfde;line-height:1.6}
-  .result .cta{display:block;text-align:center;margin-top:20px}
   .calc-note{font-size:12px;color:var(--muted,#6b7280);line-height:1.7;margin-top:16px}
 </style>
 </head>
@@ -85,49 +65,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </section>
 
 <section class="section">
-  <div class="wrap calc-grid calc">
-
-    <!-- INPUTS -->
-    <div class="card calc-card">
-      <span class="kicker">Your numbers</span>
-      <h2 class="h-lg" style="margin:6px 0 22px">Estimate your rebate</h2>
-
-      <div class="fg">
-        <label for="price">Purchase price</label>
-        <div class="price-row">
-          <span class="dollar">$</span>
-          <input type="number" id="price" name="price" min="200000" max="2000000" step="5000" value="650000" inputmode="numeric" aria-describedby="priceHint" />
-        </div>
-        <input type="range" id="priceRange" min="200000" max="2000000" step="5000" value="650000" aria-label="Purchase price slider" />
-        <p id="priceHint" class="calc-note" style="margin-top:6px">Drag the slider or type a price. Most GTA new-condo suites fall between $400k and $900k.</p>
-      </div>
-
-      <div class="fg">
-        <label>How will you use it?</label>
-        <div class="seg" role="group" aria-label="How will you use the home">
-          <button type="button" id="useLive" aria-pressed="true">I'll live in it</button>
-          <button type="button" id="useInvest" aria-pressed="false">Investment / rental</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- RESULT -->
-    <div class="result" id="result" aria-live="polite">
-      <div class="rk">Estimated maximum rebate</div>
-      <div class="big" id="rebateOut">$0</div>
-      <div class="sub" id="rebateSub">Estimated maximum — not a guarantee.</div>
-
-      <div class="breakdown" id="breakdown">
-        <div class="brow"><span>Purchase price</span><span id="bPrice">$650,000</span></div>
-        <div class="brow"><span>Estimated max rebate</span><span id="bRebate">$84,500</span></div>
-        <div class="brow"><span>Illustrative price after rebate</span><span id="bNet">$565,500</span></div>
-      </div>
-
-      <div class="hedge" id="hedge" hidden></div>
-
-      <a class="btn btn-gold cta" href="contact.html">Get your exact figure + the deal list →</a>
-    </div>
-  </div>
+  <div class="wrap"><div data-hst-calc data-source="calculator-page"></div></div>
 
   <div class="wrap">
     <p class="calc-note" style="max-width:920px">
@@ -141,80 +79,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <div id="site-footer"></div>
 <script src="assets/js/site.js"></script>
-<script>
-(function(){
-  var RATE = 0.13, CAP = 1000000, PD_START = 1500000, PD_END = 1850000, MAXREBATE = 130000, FLOOR = 24000;
-  var priceEl = document.getElementById("price");
-  var rangeEl = document.getElementById("priceRange");
-  var liveBtn = document.getElementById("useLive");
-  var investBtn = document.getElementById("useInvest");
-  var rebateOut = document.getElementById("rebateOut");
-  var rebateSub = document.getElementById("rebateSub");
-  var breakdown = document.getElementById("breakdown");
-  var hedge = document.getElementById("hedge");
-  var bPrice = document.getElementById("bPrice");
-  var bRebate = document.getElementById("bRebate");
-  var bNet = document.getElementById("bNet");
-  var useInvest = false;
-  var fmt = function(n){ return "$" + Math.round(n).toLocaleString("en-CA"); };
-
-  function maxRebate(price){
-    if (price <= CAP) return Math.min(price * RATE, MAXREBATE); // up to $1M: full 13%
-    if (price <= PD_START) return MAXREBATE;                    // $1M–$1.5M: holds at $130K max
-    if (price < PD_END){                                        // $1.5M–$1.85M: phase down to floor
-      var frac = (price - PD_START) / (PD_END - PD_START);
-      return MAXREBATE - (MAXREBATE - FLOOR) * frac;
-    }
-    return FLOOR;                                               // above $1.85M: $24K floor
-  }
-
-  function clampPrice(v){
-    v = parseFloat(v);
-    if (isNaN(v)) v = 650000;
-    return Math.min(2000000, Math.max(200000, v));
-  }
-
-  function render(){
-    var price = clampPrice(priceEl.value);
-    bPrice.textContent = fmt(price);
-
-    if (useInvest){
-      breakdown.setAttribute("hidden", "");
-      rebateOut.textContent = "Let's confirm";
-      rebateSub.textContent = "Investment purchases vary.";
-      hedge.hidden = false;
-      hedge.innerHTML = "Investment and rental purchases follow the <b>New Residential Rental Property (NRRP)</b> rebate path — the amount differs and depends on how the unit is rented. Tell us about the suite and we'll confirm your exact figure.";
-      return;
-    }
-
-    hedge.hidden = true;
-    breakdown.removeAttribute("hidden");
-    var rebate = maxRebate(price);
-    rebateOut.textContent = fmt(rebate);
-    rebateSub.textContent = (price >= PD_END)
-      ? "$24,000 floor applies above $1.85M — estimated."
-      : (price > PD_START ? "Phasing down above $1.5M — estimated maximum."
-        : (price > CAP ? "At the $130,000 maximum — estimated." : "Estimated maximum — not a guarantee."));
-    bRebate.textContent = fmt(rebate);
-    bNet.textContent = fmt(price - rebate);
-  }
-
-  // sync slider <-> number
-  priceEl.addEventListener("input", function(){ rangeEl.value = clampPrice(priceEl.value); render(); });
-  rangeEl.addEventListener("input", function(){ priceEl.value = rangeEl.value; render(); });
-
-  function setUse(invest){
-    useInvest = invest;
-    liveBtn.setAttribute("aria-pressed", invest ? "false" : "true");
-    investBtn.setAttribute("aria-pressed", invest ? "true" : "false");
-    render();
-    if (window.dataLayer) window.dataLayer.push({ event: "calculator_use", calc_use: invest ? "investment" : "live-in" });
-  }
-  liveBtn.addEventListener("click", function(){ setUse(false); });
-  investBtn.addEventListener("click", function(){ setUse(true); });
-
-  render();
-})();
-</script>
+<script src="assets/js/hst-calc.js"></script>
 </body>
 </html>
