@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager — replace GTM-XXXXXXX with your container ID (identical on every page; find-and-replace to swap all) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Perfect Condo Deals — Brand-New GTA Condos Below Market | Builder Surplus & Assignments</title>
+<title>The Condo Capital — Brand-New GTA Condos Below Market | Builder Surplus & Assignments</title>
 <meta name="description" content="Builder-surplus and assignment-sale pre-construction condos across the Greater Toronto Area — priced below comparable resale and often marketed privately, away from MLS. One form, full deal sheet." />
-<link rel="canonical" href="https://perfectcondodeals.com/" />
+<link rel="canonical" href="https://thecondocapital.com/" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Perfect Condo Deals — Brand-New GTA Condos Below Market" />
+<meta property="og:title" content="The Condo Capital — Brand-New GTA Condos Below Market" />
 <meta property="og:description" content="Builder-surplus and assignment pre-construction condos across the GTA, priced below comparable resale. Get the full deal list." />
 <meta property="og:image" content="assets/stock/toronto-skyline-dusk.jpg" />
 <meta name="theme-color" content="#0c1a37" />
@@ -18,20 +25,35 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  "name": "Perfect Condo Deals",
-  "description": "Builder-surplus and assignment pre-construction condos across the Greater Toronto Area, priced below comparable resale.",
-  "url": "https://perfectcondodeals.com/",
-  "image": "https://perfectcondodeals.com/assets/stock/toronto-skyline-dusk.jpg",
-  "telephone": "+1-437-555-0182",
-  "email": "hello@perfectcondodeals.com",
-  "areaServed": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
-  "address": { "@type": "PostalAddress", "addressRegion": "ON", "addressCountry": "CA" },
-  "knowsAbout": ["Pre-construction condos", "Assignment sales", "Builder surplus", "GTA real estate"]
+  "@graph": [
+    {
+      "@type": "RealEstateAgent",
+      "@id": "https://thecondocapital.com/#org",
+      "name": "The Condo Capital",
+      "description": "Builder-surplus and assignment pre-construction condos across the Greater Toronto Area, priced below comparable resale.",
+      "url": "https://thecondocapital.com/",
+      "image": "https://thecondocapital.com/assets/stock/toronto-skyline-dusk.jpg",
+      "telephone": "+1-437-555-0182",
+      "email": "hello@thecondocapital.com",
+      "areaServed": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
+      "address": { "@type": "PostalAddress", "addressRegion": "ON", "addressCountry": "CA" },
+      "knowsAbout": ["Pre-construction condos", "Assignment sales", "Builder surplus", "GTA real estate"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://thecondocapital.com/#website",
+      "url": "https://thecondocapital.com/",
+      "name": "The Condo Capital",
+      "publisher": { "@id": "https://thecondocapital.com/#org" }
+    }
+  ]
 }
 </script>
 </head>
 <body data-page="home">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div id="site-header"></div>
 
 <!-- ============ HERO ============ -->
@@ -42,7 +64,7 @@
     <h1>Brand-new GTA condos,<br>priced <span class="gold">below market.</span></h1>
     <p class="sub">Many of the best pre-construction deals are marketed privately, away from MLS. We get access to builder-surplus and assignment homes across the Greater Toronto Area and put them on one list. Fill in one form, get the full deal sheet.</p>
     <div class="hero-ctas">
-      <a class="btn btn-gold btn-lg" href="contact.html">Get the Deal List <span class="ar">→</span></a>
+      <a class="btn btn-gold btn-lg" href="#register">Get the Deal List <span class="ar">→</span></a>
       <a class="btn btn-outline-light btn-lg" href="projects.html">Browse Live Projects</a>
     </div>
     <form class="searchbar" data-search>
@@ -230,7 +252,8 @@
       <span class="kicker solo">New for 2026</span>
       <h2 class="h-xl">Up to <span style="color:var(--gold-2)">$130,000</span> back in HST.</h2>
       <p class="lead" style="margin-top:14px">Ontario's enhanced 2026 rebate can return the full 13% HST (combined federal and provincial) on an eligible brand-new home valued up to $1&nbsp;million. The first-time-buyer rule is gone, so repeat buyers can qualify too. On a brand-new suite, that can mean tens of thousands back in your pocket.</p>
-      <a class="link-gold" href="guide.html">See how the rebate works →</a>
+      <a class="link-gold" href="hst-rebate-calculator.html">Estimate your rebate →</a>
+      <a class="link-gold" href="guide.html" style="margin-left:18px">See how the rebate works →</a>
     </div>
     <div class="reveal">
       <div class="datacards" style="grid-template-columns:1fr 1fr;gap:16px">
@@ -294,18 +317,18 @@
           </select>
         </div>
         <div class="frow">
-          <div class="fg"><label>Timeline</label>
-            <select name="timeline" required>
-              <option value="" disabled selected>How soon?</option>
+          <div class="fg"><label>Timeline <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+            <select name="timeline">
+              <option value="" selected>How soon?</option>
               <option value="asap">ASAP — I'm ready</option>
               <option value="3mo">Within 3 months</option>
               <option value="6mo">Within 6 months</option>
               <option value="browsing">Just exploring</option>
             </select>
           </div>
-          <div class="fg"><label>Purpose</label>
-            <select name="intent" required>
-              <option value="" disabled selected>Live or invest?</option>
+          <div class="fg"><label>Purpose <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+            <select name="intent">
+              <option value="" selected>Live or invest?</option>
               <option value="live">To live in</option>
               <option value="invest">Investment</option>
               <option value="either">Either</option>
@@ -313,8 +336,8 @@
           </div>
         </div>
         <div class="consent">
-          <input type="checkbox" name="consent" id="consent" data-text="I agree that Perfect Condo Deals / RE/MAX Hallmark, Brokerage may contact me by email, phone or text about pre-construction and assignment opportunities, pricing and related real estate services. I can withdraw consent / unsubscribe at any time." required />
-          <label for="consent">I agree that <b>Perfect Condo Deals</b> / RE/MAX Hallmark, Brokerage may contact me by email, phone, or text about pre-construction and assignment opportunities, pricing, and related real estate services. I can withdraw consent / unsubscribe any time.</label>
+          <input type="checkbox" name="consent" id="consent" data-text="I agree that The Condo Capital / RE/MAX Hallmark, Brokerage may contact me by email, phone or text about pre-construction and assignment opportunities, pricing and related real estate services. I can withdraw consent / unsubscribe at any time." required />
+          <label for="consent">I agree that <b>The Condo Capital</b> / RE/MAX Hallmark, Brokerage may contact me by email, phone, or text about pre-construction and assignment opportunities, pricing, and related real estate services. I can withdraw consent / unsubscribe any time.</label>
         </div>
         <button type="submit" class="submit">Send Me the Deal Sheet →</button>
         <p class="fineprint">By submitting you agree to our <a href="privacy.html">Privacy &amp; CASL Policy</a>. Stated savings &amp; rebate figures are estimates that vary by unit and buyer profile and are not guaranteed.</p>

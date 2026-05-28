@@ -1,5 +1,5 @@
 /* =========================================================================
-   PERFECT CONDO DEALS — site.js
+   THE CONDO CAPITAL — site.js
    Single source of truth for header, footer, sticky CTA + interactions.
    Each page: <body data-page="home"> and optional empty #site-header / #site-footer.
    ========================================================================= */
@@ -8,16 +8,23 @@
 
   /* ---- Brand config (replace placeholders before launch) ---- */
   var BRAND = {
-    name: "Perfect Condo Deals",
+    name: "The Condo Capital",
     tagline: "GTA Pre-Construction & Assignment Deals",
     phone: "(437) 555-0182",
     phoneHref: "tel:+14375550182",
-    email: "hello@perfectcondodeals.com",
+    email: "hello@thecondocapital.com",
     hours: "Mon–Sun · 9:00am – 7:00pm",
     area: "Serving the Greater Toronto Area",
     brokerage: "RE/MAX Hallmark, Brokerage",
     reco: "[RECO #]"
   };
+
+  /* ---- Analytics (Google Tag Manager) ----
+     GTM container snippet lives in each page's <head>. Tags (GA4, Meta Pixel,
+     Google Ads conversion) are configured inside the GTM UI and triggered off
+     the dataLayer events pushed below — no per-vendor snippets in this file. */
+  var LEAD_VALUE = 0; // optional $ value per lead for Google Ads conversion value; leave 0 if unused
+  function dlPush(obj) { (window.dataLayer = window.dataLayer || []).push(obj); }
 
   var LOGO = '<svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
     '<rect x="2" y="2" width="44" height="44" rx="10" fill="#0c1a37"/>' +
@@ -28,7 +35,7 @@
 
   function brandBlock(footer) {
     return '<a class="brand" href="index.html" aria-label="' + BRAND.name + ' home">' + LOGO +
-      '<span class="logo-text"><span class="b1">Perfect Condo Deals</span>' +
+      '<span class="logo-text"><span class="b1">The Condo Capital</span>' +
       '<span class="b2">Pre-Construction · GTA</span></span></a>';
   }
 
@@ -96,7 +103,7 @@
   }
 
   function buildFooter() {
-    var explore = [["Home","index.html"],["All Projects","projects.html"],["Buyer's Guide","guide.html"],["About Us","about.html"],["Contact","contact.html"]];
+    var explore = [["Home","index.html"],["All Projects","projects.html"],["Buyer's Guide","guide.html"],["HST Rebate Calculator","hst-rebate-calculator.html"],["About Us","about.html"],["Contact","contact.html"]];
     var projects = [["1515 Pickering Parkway","1515-pickering.html"],["NORTHCORE — 53 Sheppard","northcore.html"],["Builder Surplus Deals","projects.html"],["Assignment Sales","projects.html"],["Register Your Interest","contact.html"]];
     function list(arr){return arr.map(function(a){return '<li><a href="'+a[1]+'">'+a[0]+'</a></li>';}).join('');}
 
@@ -136,6 +143,7 @@
   /* ---- Mount ---- */
   function mount() {
     var page = document.body.getAttribute("data-page") || "";
+    dlPush({ event: "page_meta", page_type: page || "other" });
     var h = document.getElementById("site-header");
     var f = document.getElementById("site-footer");
     if (h) h.innerHTML = buildHeader(page);
@@ -148,6 +156,7 @@
     wireForms();
     wireReveal();
     wireSearch();
+    wireProjectFilter();
   }
 
   function wireNav() {
@@ -223,8 +232,19 @@
         var success = document.querySelector(form.getAttribute("data-success") || "#formSuccess");
         if (box) box.style.display = "none";
         if (success) success.style.display = "block";
-        if (typeof gtag !== "undefined") gtag("event", "conversion");
-        if (typeof fbq !== "undefined") fbq("track", "Lead");
+
+        // One lead event; GTM fires GA4, Meta Pixel and Google Ads conversion tags off it.
+        dlPush({
+          event: "generate_lead",
+          lead_project: data.project || "",
+          lead_source: data.source || "",
+          lead_page: data.page,
+          value: LEAD_VALUE,
+          currency: "CAD",
+          utm_source: data.utm_source || "",
+          utm_medium: data.utm_medium || "",
+          utm_campaign: data.utm_campaign || ""
+        });
       });
     });
   }
@@ -233,9 +253,55 @@
     document.querySelectorAll("form[data-search]").forEach(function (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        window.location.href = "projects.html";
+        var input = form.querySelector("input");
+        var q = input && input.value ? input.value.trim() : "";
+        window.location.href = q ? "projects.html?q=" + encodeURIComponent(q) : "projects.html";
       });
     });
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function wireProjectFilter() {
+    if ((document.body.getAttribute("data-page") || "") !== "projects") return;
+    var q = qp("q").trim();
+    if (!q) return;
+    var cards = document.querySelectorAll("[data-project-card]");
+    if (!cards.length) return;
+    var grid = cards[0].closest(".grid");
+    if (!grid) return;
+    var needle = q.toLowerCase();
+    var matched = 0;
+
+    // hide non-project cards (e.g. the "more deals" placeholder) while searching
+    grid.querySelectorAll(".pcard").forEach(function (card) {
+      if (!card.hasAttribute("data-project-card")) card.style.display = "none";
+    });
+    cards.forEach(function (card) {
+      var hit = card.textContent.toLowerCase().indexOf(needle) !== -1;
+      card.style.display = hit ? "" : "none";
+      if (hit) matched++;
+    });
+
+    var bar = document.createElement("div");
+    bar.style.cssText = "display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 22px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--paper)";
+    bar.innerHTML =
+      '<span style="font-size:15px">' +
+      (matched ? "Showing " + matched + " result" + (matched > 1 ? "s" : "") + " for " : "No projects match ") +
+      "<b>“" + escapeHtml(q) + "”</b></span>" +
+      '<a href="projects.html" style="font-weight:600;color:var(--gold-deep);text-decoration:underline">Clear search ✕</a>';
+    grid.parentNode.insertBefore(bar, grid);
+
+    if (!matched) {
+      var nr = document.createElement("p");
+      nr.style.cssText = "text-align:center;color:var(--muted);margin:30px 0";
+      nr.innerHTML = 'Nothing matched your search yet. We add new builder-surplus and assignment deals regularly — <a href="contact.html" style="color:var(--gold-deep);text-decoration:underline">join the list</a> to see them first.';
+      grid.parentNode.appendChild(nr);
+    }
   }
 
   function wireReveal() {
