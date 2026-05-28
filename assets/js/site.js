@@ -61,6 +61,7 @@
     ]},
     { label: "Buyer's Guide", href: "guide.html", key: "guide" },
     { label: "HST Calculator", href: "hst-rebate-calculator.html", key: "calculator" },
+    { label: "Cost Estimator", href: "buyer-cost-estimator.html", key: "estimator" },
     { label: "About", href: "about.html", key: "about" },
     { label: "Contact", href: "contact.html", key: "contact" }
   ];
