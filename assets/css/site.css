@@ -132,7 +132,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spa
 .brand .logo-text .b2{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-top:3px}
 .nav-links{display:flex;align-items:center;gap:6px;margin-left:auto}
 .nav-links>li{position:relative;list-style:none}
-.nav-links>li>a{display:flex;align-items:center;gap:5px;padding:10px 15px;font-size:15px;font-weight:500;color:var(--ink-soft);border-radius:8px;transition:color .2s,background .2s}
+.nav-links>li>a{display:flex;align-items:center;gap:5px;padding:9px 12px;font-size:14px;font-weight:500;white-space:nowrap;color:var(--ink-soft);border-radius:8px;transition:color .2s,background .2s}
 .nav-links>li>a:hover{color:var(--navy)}
 .nav-links>li.active>a{color:var(--navy);font-weight:600}
 .nav-links .caret{width:11px;height:11px;stroke:currentColor;transition:transform .25s}
