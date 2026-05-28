@@ -104,7 +104,7 @@
   }
 
   function buildFooter() {
-    var explore = [["Home","index.html"],["All Projects","projects.html"],["Buyer's Guide","guide.html"],["HST Rebate Calculator","hst-rebate-calculator.html"],["About Us","about.html"],["Contact","contact.html"]];
+    var explore = [["Home","index.html"],["All Projects","projects.html"],["Buyer's Guide","guide.html"],["HST Rebate Calculator","hst-rebate-calculator.html"],["Buyer Cost Estimator","buyer-cost-estimator.html"],["About Us","about.html"],["Contact","contact.html"]];
     var projects = [["1515 Pickering Parkway","1515-pickering.html"],["NORTHCORE — 53 Sheppard","northcore.html"],["Builder Surplus Deals","projects.html"],["Assignment Sales","projects.html"],["Register Your Interest","contact.html"]];
     function list(arr){return arr.map(function(a){return '<li><a href="'+a[1]+'">'+a[0]+'</a></li>';}).join('');}
 

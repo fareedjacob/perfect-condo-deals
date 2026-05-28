@@ -22,6 +22,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css" />
+<style>
+  /* Overview: image matches text-column height so it never letterboxes (desktop) */
+  @media(min-width:921px){
+    .split.ov{align-items:stretch}
+    .split.ov .split-img{aspect-ratio:auto;height:100%;min-height:520px}
+  }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -100,7 +107,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- ============ OVERVIEW ============ -->
 <section class="section">
-  <div class="wrap split">
+  <div class="wrap split ov">
     <div class="reveal">
       <span class="kicker">The Project</span>
       <h2 class="h-lg">A black-and-white landmark, by the lake.</h2>

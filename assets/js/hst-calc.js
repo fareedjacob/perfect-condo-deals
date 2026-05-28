@@ -39,8 +39,9 @@
     ".hstc-fg{margin-bottom:20px}" +
     ".hstc-fg label{display:block;font-size:13px;font-weight:600;color:var(--n);margin-bottom:8px}" +
     ".hstc-price{display:flex;align-items:center;gap:10px;border:1.5px solid var(--ln);border-radius:12px;padding:10px 14px}" +
-    ".hstc-price .hstc-d{font-size:20px;font-weight:700;color:var(--n)}" +
-    ".hstc-price input{border:0;outline:0;width:100%;font:700 20px/1 inherit;color:var(--n);background:transparent}" +
+    ".hstc-price{padding:12px 16px}" +
+    ".hstc-price .hstc-d{font-size:24px;font-weight:700;color:var(--g);line-height:1}" +
+    ".hstc-price input{border:0;outline:0;width:100%;font-family:inherit;font-weight:800;font-size:28px;line-height:1.1;letter-spacing:-.5px;color:var(--n);background:transparent}" +
     ".hstc input[type=range]{width:100%;accent-color:var(--g);margin-top:14px}" +
     ".hstc-seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}" +
     ".hstc-seg button{padding:13px 14px;border-radius:12px;border:1.5px solid var(--ln);background:#fff;font:600 15px/1 inherit;color:var(--n);cursor:pointer;transition:all .15s}" +
