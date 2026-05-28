@@ -176,8 +176,16 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spa
 .hero{position:relative;min-height:640px;display:flex;align-items:center;color:#fff;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover}
-.hero-bg::after{content:"";position:absolute;inset:0;
+.hero-bg::after{content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(8,17,38,.62) 0%,rgba(8,17,38,.48) 45%,rgba(8,17,38,.82) 100%)}
+/* Crossfade hero slideshow: first <img> is the LCP base (opacity 1); the rest fade over it. */
+.hero-bg.slides{background:#0c1a37}
+.hero-bg.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-bg.slides img+img{opacity:0;animation:heroSlide 16s ease-in-out infinite}
+.hero-bg.slides img:nth-child(2){animation-delay:3s}
+.hero-bg.slides img:nth-child(3){animation-delay:9s}
+@keyframes heroSlide{0%,100%{opacity:0}6%,28%{opacity:1}34%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.hero-bg.slides img+img{display:none}}
 .hero-inner{position:relative;z-index:2;width:100%;padding:96px 0}
 .hero .badge{display:inline-flex;align-items:center;gap:9px;background:rgba(194,162,90,.16);
   border:1px solid rgba(216,189,121,.5);color:var(--gold-2);font-size:12.5px;font-weight:600;
