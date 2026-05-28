@@ -56,7 +56,7 @@
     { label: "Home", href: "index.html", key: "home" },
     { label: "Projects", href: "projects.html", key: "projects", children: [
       { t: "1515 Pickering Parkway", s: "Studios from the high $300s · Pickering", href: "1515-pickering.html", ic: "①" },
-      { t: "NORTHCORE", s: "Townhomes & tower · Yonge & Sheppard", href: "northcore.html", ic: "②" },
+      { t: "NORTHCORE Townhomes", s: "Executive 4-bed towns · Yonge & Sheppard", href: "northcore.html", ic: "②" },
       { t: "All Projects", s: "Browse every available deal", href: "projects.html", ic: "▦" }
     ]},
     { label: "Buyer's Guide", href: "guide.html", key: "guide" },
