@@ -181,23 +181,21 @@
         });
       });
     }
-    if (nav) {
-      // The fixed header overlays the dark hero/pagehead and stays transparent
-      // until it scrolls past that dark area — then it turns solid white so the
-      // (dark) text stays readable over light content below.
-      var header = document.getElementById("site-header");
-      var darkHead = document.querySelector(".hero, .pagehead");
+    var header = document.getElementById("site-header");
+    if (nav && header) {
+      // The fixed header overlays the dark hero/pagehead and is transparent at
+      // the top; a small scroll turns it solid white and shrinks it.
       var syncHeaderHeight = function () {
-        var h = (header || nav).offsetHeight;
+        // Only measure while expanded so the content offset stays put when the
+        // header shrinks on scroll.
+        if (header.classList.contains("scrolled")) return;
+        var h = header.offsetHeight;
         if (h) document.documentElement.style.setProperty("--header-h", h + "px");
-        return h;
       };
       var onScroll = function () {
-        var hb = syncHeaderHeight();
-        var solid = darkHead
-          ? darkHead.getBoundingClientRect().bottom <= hb + 4
-          : window.scrollY > 8;
-        nav.classList.toggle("scrolled", solid);
+        var solid = window.scrollY > 40;
+        if (!solid) syncHeaderHeight();
+        header.classList.toggle("scrolled", solid);
       };
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });

@@ -126,8 +126,9 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spa
 .link-gold:hover{border-color:var(--gold);gap:11px}
 
 /* ---------- Top utility bar ---------- */
-.topbar{background:var(--navy);color:#d8deec;font-size:13px}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:42px;gap:20px}
+.topbar{background:var(--navy);color:#d8deec;font-size:13px;overflow:hidden}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:42px;gap:20px;
+  transition:height .3s var(--ease),opacity .25s var(--ease)}
 .topbar a{color:#d8deec;transition:color .2s}
 .topbar a:hover{color:var(--gold-2)}
 .topbar .tb-left{display:flex;gap:26px;align-items:center}
@@ -139,26 +140,31 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spa
 
 /* ---------- Header / Nav ---------- */
 /* Header overlays the hero/pagehead so a transparent nav reveals the dark
-   section behind it (not the white page body). site.js sets --header-h. */
-#site-header{position:fixed;top:0;left:0;right:0;z-index:100}
+   section behind it (not the white page body). site.js sets --header-h and
+   toggles .scrolled on #site-header after a small scroll. */
+#site-header{position:fixed;top:0;left:0;right:0;z-index:100;transition:box-shadow .3s var(--ease)}
+#site-header.scrolled{box-shadow:var(--shadow-sm)}
 .nav{position:relative;background:rgba(255,255,255,.92);
   backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);
   border-bottom:1px solid var(--line);
   transition:background .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease)}
-.nav.scrolled{box-shadow:var(--shadow-sm)}
 /* brand left · menu centered · CTA right */
-.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:78px;gap:28px}
+.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:78px;gap:28px;
+  transition:height .3s var(--ease)}
 /* Desktop: header is transparent over the dark hero/pagehead until you hover it
-   or scroll past that dark area (.scrolled is toggled in site.js). */
+   or scroll (then it turns solid white and shrinks for a compact sticky bar). */
 @media(min-width:1041px){
-  .nav:not(:hover):not(.scrolled){
+  #site-header:not(:hover):not(.scrolled) .nav{
     background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;
     border-bottom-color:transparent;box-shadow:none;
   }
-  .nav:not(:hover):not(.scrolled) .logo-text .b1{color:#fff}
-  .nav:not(:hover):not(.scrolled) .logo-text .b2{color:var(--gold-2)}
-  .nav:not(:hover):not(.scrolled) .nav-links>li>a{color:rgba(255,255,255,.9)}
-  .nav:not(:hover):not(.scrolled) .nav-links>li.active>a{color:#fff}
+  #site-header:not(:hover):not(.scrolled) .logo-text .b1{color:#fff}
+  #site-header:not(:hover):not(.scrolled) .logo-text .b2{color:var(--gold-2)}
+  #site-header:not(:hover):not(.scrolled) .nav-links>li>a{color:rgba(255,255,255,.9)}
+  #site-header:not(:hover):not(.scrolled) .nav-links>li.active>a{color:#fff}
+  /* Compact once scrolled: collapse the utility bar and shrink the nav row */
+  #site-header.scrolled .topbar .wrap{height:0;opacity:0}
+  #site-header.scrolled .nav .wrap{height:60px}
 }
 .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .brand .logo-mark{width:42px;height:42px;flex-shrink:0}
