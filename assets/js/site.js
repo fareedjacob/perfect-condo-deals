@@ -95,9 +95,8 @@
     }).join('');
 
     var nav = '<nav class="nav"><div class="wrap">' + brandBlock() +
-      '<ul class="nav-links" id="navLinks">' + links +
-        '<li class="nav-cta"><a class="btn btn-gold" href="contact.html">Register Now</a></li>' +
-      '</ul>' +
+      '<ul class="nav-links" id="navLinks">' + links + '</ul>' +
+      '<a class="btn btn-gold nav-cta" href="contact.html">Register Now</a>' +
       '<button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
       '</div></nav>';
 
@@ -183,9 +182,26 @@
       });
     }
     if (nav) {
-      var onScroll = function () { nav.classList.toggle("scrolled", window.scrollY > 8); };
+      // The fixed header overlays the dark hero/pagehead and stays transparent
+      // until it scrolls past that dark area — then it turns solid white so the
+      // (dark) text stays readable over light content below.
+      var header = document.getElementById("site-header");
+      var darkHead = document.querySelector(".hero, .pagehead");
+      var syncHeaderHeight = function () {
+        var h = (header || nav).offsetHeight;
+        if (h) document.documentElement.style.setProperty("--header-h", h + "px");
+        return h;
+      };
+      var onScroll = function () {
+        var hb = syncHeaderHeight();
+        var solid = darkHead
+          ? darkHead.getBoundingClientRect().bottom <= hb + 4
+          : window.scrollY > 8;
+        nav.classList.toggle("scrolled", solid);
+      };
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
     }
   }
 
