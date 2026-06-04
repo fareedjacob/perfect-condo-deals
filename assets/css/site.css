@@ -201,6 +201,12 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spa
 .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 @media(max-width:1040px){
+  /* The closed off-canvas drawer (.nav-links, position:fixed, translateX(100%))
+     sits a full viewport-width off the right edge. body{overflow-x:hidden} does
+     NOT clip a fixed child on real mobile browsers, so the page becomes pannable
+     and the hero shifts under the fixed header. Clip at the root too — scoped to
+     mobile, where no sticky elements are active, so it can't break them. */
+  html{overflow-x:hidden}
   /* backdrop-filter on .nav makes it the containing block for position:fixed
      children, which collapses/offsets the mobile menu panel. Drop it on mobile. */
   .nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}
