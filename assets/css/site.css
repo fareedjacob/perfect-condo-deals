@@ -137,6 +137,9 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spa
 .topbar .tb-right{display:flex;gap:14px;align-items:center}
 .topbar .tb-soc{display:flex;gap:12px}
 @media(max-width:880px){.topbar .tb-item.hours,.topbar .tb-soc{display:none}}
+/* Below this the area label + phone fight for space on one 42px line and wrap.
+   Keep only the tappable phone and center it. */
+@media(max-width:600px){.topbar .tb-left{display:none}.topbar .wrap{justify-content:center}}
 
 /* ---------- Header / Nav ---------- */
 /* Header overlays the hero/pagehead so a transparent nav reveals the dark
@@ -310,8 +313,11 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spa
 .pcard .dev{font-size:13px;color:var(--muted);margin-bottom:18px}
 .pcard .dev a{color:var(--gold-deep);font-weight:600}
 .pcard-meta{display:flex;flex-direction:column;gap:11px;margin-bottom:22px;padding-top:18px;border-top:1px solid var(--line-2)}
-.pcard-meta .m{display:flex;align-items:center;gap:11px;font-size:14px;color:var(--ink-soft)}
-.pcard-meta .m .mi{width:30px;height:30px;border-radius:8px;background:var(--paper);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold-deep)}
+/* Block (not flex) so the text + inline <b> values flow and wrap as normal
+   prose; the icon is positioned out of flow. Flex made each text run/<b> a
+   separate non-wrapping item, so longer metas (e.g. "$1,500/mo") clipped. */
+.pcard-meta .m{position:relative;padding-left:41px;font-size:14px;color:var(--ink-soft);line-height:1.5}
+.pcard-meta .m .mi{position:absolute;left:0;top:0;width:30px;height:30px;border-radius:8px;background:var(--paper);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold-deep)}
 .pcard-meta .m b{color:var(--ink);font-weight:600}
 .pcard-price{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--navy)}
 .pcard-price small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:2px}
@@ -513,11 +519,13 @@ footer.site .legal .lrow{display:flex;justify-content:space-between;gap:20px;fle
 }
 @media(max-width:920px){
   .section{padding:var(--space-64) 0}
-  .split{grid-template-columns:1fr;gap:var(--space-32)}
+  /* !important so inline desktop grid-template-columns (set per-page) can't keep
+     multi-column layouts on mobile and overflow/clip the viewport. */
+  .split{grid-template-columns:1fr !important;gap:var(--space-32)}
   .split-img{order:-1}
-  .grid-3,.grid-2{grid-template-columns:1fr}
-  .benefits{grid-template-columns:1fr}
-  .formgrid{grid-template-columns:1fr;gap:var(--space-32)}
+  .grid-3,.grid-2{grid-template-columns:1fr !important}
+  .benefits{grid-template-columns:1fr !important}
+  .formgrid{grid-template-columns:1fr !important;gap:var(--space-32)}
   .gallery{grid-template-columns:repeat(2,1fr)}
   .gallery .g.tall{grid-row:span 1;aspect-ratio:1/1}
   .ctaband-in{padding:var(--space-48) var(--space-32)}
@@ -528,11 +536,18 @@ footer.site .legal .lrow{display:flex;justify-content:space-between;gap:20px;fle
 }
 @media(max-width:560px){
   .wrap{padding:0 var(--space-16)}
-  .benefits,.datacards,.steps,.specs{grid-template-columns:1fr}
-  .frow{grid-template-columns:1fr}
+  .benefits,.datacards,.steps,.specs{grid-template-columns:1fr !important}
+  .frow{grid-template-columns:1fr !important}
   footer.site .fgrid{grid-template-columns:1fr}
   .hero-stats{gap:24px}
+  /* Safety so long single-word stats (e.g. "Same-day", "GTA-wide") can break
+     rather than overflow a narrow 2-up stat column on small phones */
+  .statstrip .st .n{overflow-wrap:break-word}
   /* Full-width hero CTAs so they align to the page gutter and the sticky bar */
   .hero-ctas{flex-direction:column;align-items:stretch}
   .hero-ctas .btn{width:100%;justify-content:center}
+  /* Long CTA-band buttons (white-space:nowrap by default) overflow the band on
+     narrow screens — let them wrap and fill the width instead of clipping. */
+  .ctaband-in{padding:var(--space-40) var(--space-24)}
+  .ctaband-in .btn{white-space:normal;width:100%}
 }

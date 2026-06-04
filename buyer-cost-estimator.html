@@ -48,6 +48,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <style>
   #bce{--n:#0c1a37;--g:#c2a25a;--g2:#d9bd79;--ln:#e6e2d6;--mut:#6b7280}
   .bce-grid{display:grid;grid-template-columns:400px 1fr;gap:24px;align-items:start}
+  /* min-width:0 lets the columns shrink below their content's min-content width
+     (the big price input) instead of overflowing the viewport on mobile. */
+  .bce-grid>*{min-width:0}
   @media(max-width:920px){.bce-grid{grid-template-columns:1fr}}
   .bce-inputs{background:#fff;border:1px solid var(--ln);border-radius:16px;padding:24px;box-shadow:0 18px 44px rgba(12,26,55,.06);position:sticky;top:90px}
   @media(max-width:920px){.bce-inputs{position:static}}
